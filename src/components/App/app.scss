@@ -1,0 +1,82 @@
+@import './variables';
+
+html {
+  width: 100vw;
+  max-width: 100%;
+}
+
+html, ::after, ::before {
+  box-sizing: border-box;
+  height: 100%;
+  font-family: 'Inter', 'Helvetica', sans-serif;
+  font-size: 12px;
+  line-height: 22px;
+  color: $headingColor;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.page-holder {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  background-color: $blueBackground;
+}
+
+.header {
+  height: 80px;
+  padding: 16px 22px;
+  background-color: $white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.h6 {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+}
+
+.button {
+  background-color: $white;
+  padding: 8px 18px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &--blog {
+    margin-left: -22px;
+  }
+
+  &--naked {
+    border: none;
+  }
+
+  &--success {
+    color: $successColor;
+    border-color: $successColor;
+  }
+
+  &--m-left {
+    margin-left: 19px;
+  }
+}
+
+.main {
+  flex-grow: 1;
+}
+
+.footer {
+  margin: 26px auto 17px;
+}

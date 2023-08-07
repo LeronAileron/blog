@@ -1,0 +1,51 @@
+@import '../App/variables';
+
+.article {
+  height: 140px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+  background-color: $white;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  margin-top: 26px;
+  padding: 15px 16px;
+
+  &__content {
+    width: 700px;
+  }
+
+  &__title {
+    color: $primaryColor;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 400;
+    margin-bottom: 4px;
+  }
+
+  &__description {
+    color: $textColor;
+  }
+
+  &__author-info {
+    width: fit-content;
+  }
+
+  &__author-name {
+    display: inline-block;
+    min-width: 100px;
+    text-align: right;
+  }
+
+  &__author-img {
+    float: right;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    margin-left: 12px;
+    object-fit: cover;
+  }
+
+  &__created {
+    text-align: right;
+  }
+}

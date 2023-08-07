@@ -1,0 +1,17 @@
+@import '../App/variables';
+
+.tag {
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 2px;
+  color: $textColorSecondary;
+  border: 1px solid $textColorSecondary;
+  padding: 0 5px;
+  background-color: $white;
+
+  &--margin {
+    margin-right: 8px;
+    margin-bottom: 4px;
+  }
+}
