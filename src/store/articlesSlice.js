@@ -1,5 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
+import setRejectedStatus from './functions/setRejectedStatus'
+
 const _apiBase = 'https://blog.kata.academy/api/'
 
 export const fetchArticles = createAsyncThunk('articles/fetchArticles', async function (page, { rejectWithValue }) {
@@ -11,7 +13,6 @@ export const fetchArticles = createAsyncThunk('articles/fetchArticles', async fu
     }
 
     const articlesData = await articlesHeads.json()
-    // const { articles } = articlesData
     return articlesData
   } catch (error) {
     return rejectWithValue(error.message)
@@ -29,10 +30,7 @@ const articlesSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchArticles.rejected, (state, action) => {
-        state.status = 'rejected'
-        state.error = action.payload
-      })
+      .addCase(fetchArticles.rejected, setRejectedStatus)
       .addCase(fetchArticles.pending, (state) => {
         state.status = 'loading'
         state.error = null

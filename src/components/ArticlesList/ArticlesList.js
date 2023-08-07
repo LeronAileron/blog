@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import { fetchArticles } from '../../store/articlesSlice'
+import ArticleWrapper from '../ArticleWrapper'
 import ArticlePreview from '../ArticlePreview'
 import Spinner from '../Spinner'
 import Error from '../Error'
@@ -19,11 +20,14 @@ const ArticlesList = ({ page }) => {
   const { articles: fetchedArticles, error, status } = useSelector((state) => state.articles)
 
   let key = 100
+
   const articles = fetchedArticles.map((el) => {
     key++
     return (
       <li key={key} className={styles.list__item}>
-        <ArticlePreview article={el} />
+        <ArticleWrapper>
+          <ArticlePreview article={el} />
+        </ArticleWrapper>
       </li>
     )
   })

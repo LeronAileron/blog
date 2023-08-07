@@ -75,6 +75,9 @@ a {
 
 .main {
   flex-grow: 1;
+  width: 60%;
+  // max-width: 938px;
+  margin: 0 auto;
 }
 
 .footer {

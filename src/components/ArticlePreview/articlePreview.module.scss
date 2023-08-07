@@ -1,25 +1,33 @@
 @import '../App/variables';
 
 .article {
-  height: 140px;
   display: flex;
   justify-content: space-between;
-  border-radius: 5px;
-  background-color: $white;
-  box-shadow: 0 4px 12px rgba(0,0,0,.15);
-  margin-top: 26px;
-  padding: 15px 16px;
 
   &__content {
     width: 700px;
   }
 
   &__title {
+    display: inline-block;
     color: $primaryColor;
     font-size: 20px;
     line-height: 28px;
     font-weight: 400;
     margin-bottom: 4px;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  &__img {
+    margin: 0 12px 0 5px;
+  }
+
+  &__likes {
+    color: $textColorSecondary;
   }
 
   &__description {
