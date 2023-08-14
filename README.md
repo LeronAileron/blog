@@ -1,1 +1,1 @@
-https://blog-kappa-gold-56.vercel.app
+https://blog-leronaileron.vercel.app
