@@ -1,15 +1,17 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+
+import Button from '../Button'
 
 const LoggedOutHeader = () => {
   return (
     <div>
-      <button className="button h6 button--naked">
-        <Link to="/sign-in">Sign In</Link>
-      </button>
-      <button className="button h6 button--success button--m-left">
-        <Link to="/sign-up">Sign Up</Link>
-      </button>
+      <Button classes={['button--naked', 'h6']} linkTo="/sign-in">
+        Sign In
+      </Button>
+
+      <Button classes={['button--success', 'button--m-left', 'h6']} linkTo="/sign-up">
+        Sign Up
+      </Button>
     </div>
   )
 }

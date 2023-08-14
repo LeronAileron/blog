@@ -14,6 +14,10 @@
     text-align: center;
     margin: 0;
   }
+
+  &--w-full {
+    width: 100%;
+  }
 }
 
 .form {
@@ -43,6 +47,14 @@
     &--error {
       border-color: $errorColor;
       outline: none;
+    }
+
+    &--h-text {
+      height: 168px;
+    }
+
+    &--tag {
+      width: 300px;
     }
   
     &::placeholder {
@@ -78,13 +90,27 @@
     margin-bottom: 8px;
     cursor: pointer;
 
+    &--article {
+      width: 319px;
+      display: block;
+    }
+
     &:hover {
       background-color: $primaryColorDarker;
     }
+  }
+
+  &__tags {
+    display: flex;
+    align-items: flex-end;
   }
 }
 
 .error-message {
   color: $errorColor;
   margin: 0;
+
+  &--margin {
+    margin-bottom: -22px;
+  }
 }

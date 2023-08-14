@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 
+import Button from '../Button'
 import { logOutUser } from '../../store/slices/userSlice'
 
 const LoggedInHeader = () => {
@@ -20,19 +20,18 @@ const LoggedInHeader = () => {
 
   return (
     <div>
-      <button className="button button--small button--success">
-        <Link to="/create-article">Create article</Link>
-      </button>
+      <Button classes={['button--small', 'button--success']} linkTo="/new-article">
+        Create article
+      </Button>
 
-      <button className="button button--naked">
-        <Link to="/profile">
-          <div className="button button--div h6 button--naked">{username}</div>
-          <img src={avatar} className="avatar" />
-        </Link>
-      </button>
-      <button className="button button--neutral h6 button--m-left" onClick={logOut}>
-        <Link to="/sign-in">Log Out</Link>
-      </button>
+      <Button classes={['button--naked']} linkTo="/profile">
+        <div className="button button--div h6 button--naked">{username}</div>
+        <img src={avatar} className="avatar" />
+      </Button>
+
+      <Button classes={['button--neutral', 'button--m-left', 'h6']} linkTo="/sign-in" onClick={logOut}>
+        Log Out
+      </Button>
     </div>
   )
 }

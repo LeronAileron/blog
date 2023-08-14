@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Route, Link, Switch, useLocation } from 'react-router-dom'
+import { Route, Link, Switch, useLocation, Redirect } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
 import LoggedOutHeader from '../LoggedOutHeader'
@@ -12,6 +12,7 @@ import Article from '../Article'
 import Pagination from '../Pagination'
 import NotFoundPage from '../NotFoundPage'
 import Alert from '../Alert'
+import ArticleActions from '../ArticleActions'
 import './app.scss'
 import fetchArticles from '../../store/functions/fetchArticles'
 import fetchCurrentUser from '../../store/functions/fetchCurrentUser'
@@ -35,7 +36,7 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchArticles({ page, limit }))
-  }, [page, limit])
+  }, [page, limit, location.pathname])
 
   useEffect(() => {
     const logged = localStorage.getItem('token')
@@ -64,9 +65,15 @@ function App() {
           <Route path="/profile">
             <Profile />
           </Route>
+          <PrivateRoute path={'/articles/:slug/edit'}>
+            <ArticleActions />
+          </PrivateRoute>
           <Route path="/articles/:slug">
             <Article />
           </Route>
+          <PrivateRoute path="/new-article">
+            <ArticleActions />
+          </PrivateRoute>
           <Route path={[`/articles?page=${page}`, '/']}>
             <ArticlesList />
           </Route>
@@ -92,4 +99,9 @@ function getPage(location) {
     locationPage = parseInt(locationPage)
   }
   return locationPage
+}
+
+function PrivateRoute({ children, ...rest }) {
+  const { loggedIn } = useSelector((state) => state.user)
+  return <Route {...rest} render={() => (loggedIn ? children : <Redirect to="/sign-in" />)} />
 }

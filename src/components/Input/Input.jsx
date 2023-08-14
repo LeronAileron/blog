@@ -1,4 +1,5 @@
 import React from 'react'
+// import classNames from 'classnames'
 
 const Input = ({
   register,
@@ -31,11 +32,19 @@ const Input = ({
       message: 'You can only use lowercase English letters and numbers',
     }
   }
+
+  // const inputClasses = classNames({
+  //   form__input: true,
+  //   'form__input--error': error?.[name] ? true : false,
+  //   'form__input--h-text': name === 'text' ? true : false,
+  // })
+
   return (
     <label className="form__label">
       {label}
       <input
         className={`form__input ${error?.[name] ? 'form__input--error' : null}`}
+        // className={inputClasses}
         {...register(name, {
           required: required,
           minLength: {

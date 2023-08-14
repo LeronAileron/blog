@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 /.vscode
+/src/service/fetchErrorsHandler.js
 
 # testing
 /coverage

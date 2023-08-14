@@ -18,15 +18,26 @@ const Article = () => {
     dispatch(fetchSingleArticle(slug))
   }, [slug])
 
+  const user = useSelector((state) => state.user.user)
   const { article, status } = useSelector((state) => state.singleArticle)
-  // console.log(article)
 
   if (status !== 'resolved') return
-  const { body } = article
+
+  const { body, author } = article
+
+  let myArticle = false
+  let currentUsername
+  if (user) {
+    currentUsername = user.username
+
+    if (currentUsername === author.username) {
+      myArticle = true
+    }
+  }
 
   return (
     <ArticleWrapper>
-      <ArticlePreview article={article} />
+      <ArticlePreview article={article} myArticle={myArticle} />
       <div className={styles.article__body}>
         <ReactMarkdown>{body}</ReactMarkdown>
       </div>
