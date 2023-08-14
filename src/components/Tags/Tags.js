@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 
-import classes from './tags.module.scss'
+import styles from './tags.module.scss'
 
-let cx = classNames.bind(classes)
+let cx = classNames.bind(styles)
 
 const Tags = ({ tags }) => {
   let key = 200
@@ -13,16 +13,16 @@ const Tags = ({ tags }) => {
 
     if (!tag) return
 
-    let styles = cx(['tag', 'tag--margin'])
+    let tagLiStyles = cx(['tag', 'tag--margin'])
 
     return (
-      <li key={key} className={styles}>
+      <li key={key} className={tagLiStyles}>
         {tag}
       </li>
     )
   })
 
-  return <ul>{tagList}</ul>
+  return <ul className={styles['tags-ul']}>{tagList}</ul>
 }
 
 export default Tags

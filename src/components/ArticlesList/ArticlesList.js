@@ -1,22 +1,15 @@
-import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React from 'react'
+import { useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import { fetchArticles } from '../../store/articlesSlice'
 import ArticleWrapper from '../ArticleWrapper'
 import ArticlePreview from '../ArticlePreview'
 import Spinner from '../Spinner'
-import Error from '../Error'
+import Alert from '../Alert'
 
 import styles from './articlesList.module.scss'
 
-const ArticlesList = ({ page }) => {
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(fetchArticles(page))
-  }, [page])
-
+const ArticlesList = () => {
   const { articles: fetchedArticles, error, status } = useSelector((state) => state.articles)
 
   let key = 100
@@ -33,7 +26,7 @@ const ArticlesList = ({ page }) => {
   })
   return (
     <>
-      {error && <Error description={error} />}
+      {error && <Alert description={error} />}
       {status === 'loading' && <Spinner />}
       <ul className={styles.list}>{articles}</ul>
     </>
@@ -43,7 +36,8 @@ const ArticlesList = ({ page }) => {
 export default ArticlesList
 
 ArticlesList.propTypes = {
-  page: PropTypes.number.isRequired,
+  page: PropTypes.number,
+  limit: PropTypes.number,
 }
 
 // var theArticles = {

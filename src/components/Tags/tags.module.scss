@@ -1,5 +1,10 @@
 @import '../App/variables';
 
+.tags-ul {
+  margin: 0;
+  padding: 0;
+}
+
 .tag {
   display: inline-block;
   height: 20px;
@@ -11,7 +16,6 @@
   background-color: $white;
 
   &--margin {
-    margin-right: 8px;
-    margin-bottom: 4px;
+    margin: 4px 8px 4px 0;
   }
 }

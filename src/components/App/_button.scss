@@ -1,0 +1,43 @@
+
+.button {
+  background-color: $white;
+  padding: 8px 18px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &--blog {
+    margin-left: -22px;
+  }
+
+  &--naked {
+    border: none;
+  }
+
+  &--success {
+    color: $successColor;
+    border-color: $successColor;
+  }
+
+  &--neutral {
+    color: $textColor;
+  }
+
+  &--small {
+    font-size: 14px;
+    line-height: 22px;
+    padding: 6px 10px;
+  }
+
+  &--div {
+    display: inline-block;
+    padding-right: 10px;
+  }
+
+  &--m-left {
+    margin-left: 19px;
+  }
+}
+
+.profile-buttons {
+  display: inline;
+}

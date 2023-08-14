@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
-// import Markdown from 'markdown-to-jsx'
 import ReactMarkdown from 'react-markdown'
 
-import { fetchArticle } from '../../store/singleArticleSlice'
+import fetchSingleArticle from '../../store/functions/fetchSingleArticle'
 import ArticleWrapper from '../ArticleWrapper'
 import ArticlePreview from '../ArticlePreview'
 
@@ -16,7 +15,7 @@ const Article = () => {
   const { slug } = useParams()
 
   useEffect(() => {
-    dispatch(fetchArticle(slug))
+    dispatch(fetchSingleArticle(slug))
   }, [slug])
 
   const { article, status } = useSelector((state) => state.singleArticle)

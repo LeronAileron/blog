@@ -1,4 +1,6 @@
 @import './variables';
+@import './forms.scss';
+@import './button.scss';
 
 html {
   width: 100vw;
@@ -6,20 +8,20 @@ html {
 }
 
 html, ::after, ::before {
-  box-sizing: border-box;
   height: 100%;
   font-family: 'Inter', 'Helvetica', sans-serif;
-  font-size: 12px;
-  line-height: 22px;
-  color: $headingColor;
+  font-weight: 400;
 }
 
 * {
+  box-sizing: border-box;
+}
+
+body {
   margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-  font-size: inherit;
-  line-height: inherit;
+  font-size: 12px;
+  line-height: 22px;
+  color: $headingColor;
 }
 
 a {
@@ -43,34 +45,14 @@ a {
   align-items: center;
 }
 
+.h5, h6 {
+  margin: 0;
+}
+
 .h6 {
   font-size: 18px;
   line-height: 28px;
   font-weight: 400;
-}
-
-.button {
-  background-color: $white;
-  padding: 8px 18px;
-  border-radius: 5px;
-  cursor: pointer;
-
-  &--blog {
-    margin-left: -22px;
-  }
-
-  &--naked {
-    border: none;
-  }
-
-  &--success {
-    color: $successColor;
-    border-color: $successColor;
-  }
-
-  &--m-left {
-    margin-left: 19px;
-  }
 }
 
 .main {
@@ -82,4 +64,26 @@ a {
 
 .footer {
   margin: 26px auto 17px;
+}
+
+.shadow-box {
+  border-radius: 5px;
+  background-color: $white;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.span-primary-color {
+  color: $primaryColor;
+  cursor: pointer;
+}
+
+.avatar {
+  float: right;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  margin-left: 12px;
+  object-fit: cover;
 }
