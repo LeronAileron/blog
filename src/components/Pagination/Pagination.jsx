@@ -63,5 +63,3 @@ PaginationComp.propTypes = {
   limit: PropTypes.number,
   setLimit: PropTypes.func.isRequired,
 }
-
-// http://localhost:3000/articles/zahodit-kak-to-muzhik-v-bar-a-bar-ves-takoj-futuristichnyj-gc8n8s

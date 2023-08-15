@@ -13,8 +13,6 @@ const deleteArticle = async function (slug) {
     if (res.status == 422) {
       const theError = await res.json()
 
-      console.log(theError)
-
       let message = ''
       Object.entries(theError.errors).map(([key, value]) => {
         message += ` ${key} ${value}`

@@ -29,7 +29,6 @@ const createNewArticle = async function (data) {
   }
 
   const newArticle = await res.json()
-  console.log(newArticle)
   return newArticle
 }
 

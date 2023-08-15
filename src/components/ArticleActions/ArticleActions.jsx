@@ -36,15 +36,12 @@ const NewArticle = () => {
   useEffect(() => {
     if (editing) {
       const formatted = _formatToReset(thisArticle)
-      console.log('after reset ', formatted)
       reset(formatted)
     }
   }, [])
 
   function onSubmit(data) {
-    console.log(data)
     const dataFormatted = _formatToPost(data)
-    console.log(dataFormatted)
 
     if (editing) {
       editArticle(dataFormatted, thisArticle.slug)
@@ -74,7 +71,6 @@ const NewArticle = () => {
   }
 
   function _formatToReset(data) {
-    console.log('before reset ', data)
     return {
       title: data.title,
       'short description': data.description,

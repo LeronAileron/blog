@@ -21,7 +21,6 @@ const SignUp = () => {
   const [error, setError] = useState(null)
 
   const onSubmit = (data) => {
-    console.log(data)
     createNewUser(data).then(
       () => {
         history.push('/sign-in')

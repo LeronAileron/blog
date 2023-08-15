@@ -1,5 +1,5 @@
 import React from 'react'
-// import classNames from 'classnames'
+import PropTypes from 'prop-types'
 
 const Input = ({
   register,
@@ -33,18 +33,11 @@ const Input = ({
     }
   }
 
-  // const inputClasses = classNames({
-  //   form__input: true,
-  //   'form__input--error': error?.[name] ? true : false,
-  //   'form__input--h-text': name === 'text' ? true : false,
-  // })
-
   return (
     <label className="form__label">
       {label}
       <input
         className={`form__input ${error?.[name] ? 'form__input--error' : null}`}
-        // className={inputClasses}
         {...register(name, {
           required: required,
           minLength: {
@@ -65,6 +58,19 @@ const Input = ({
       {error?.[name] && <p className="error-message">{error?.[name].message || 'Error'}</p>}
     </label>
   )
+}
+
+Input.propTypes = {
+  register: PropTypes.func.isRequired,
+  error: PropTypes.object,
+  label: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  type: PropTypes.string,
+  required: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  // min: PropTypes.arrayOf([PropTypes.number, PropTypes.string]),
+  min: PropTypes.array,
+  max: PropTypes.array,
+  requireValidation: PropTypes.string,
 }
 
 export default Input

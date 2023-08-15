@@ -1,3 +1,3 @@
-import ArticlesList from './ArticlesList.js'
+import ArticlesList from './ArticlesList'
 
 export default ArticlesList

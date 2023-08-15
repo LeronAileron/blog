@@ -29,7 +29,6 @@ const editArticle = async function (data, slug) {
   }
 
   const editedArticle = await res.json()
-  console.log(editedArticle)
   return editedArticle
 }
 

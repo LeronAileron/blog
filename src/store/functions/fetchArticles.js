@@ -5,7 +5,9 @@ import _apiBase from '../../service/_apiBase'
 const fetchArticles = createAsyncThunk('articles/fetchArticles', async function ({ page, limit }, { rejectWithValue }) {
   try {
     const offset = (page - 1) * limit
-    const articlesHeads = await fetch(`${_apiBase}articles?limit=${limit}&offset=${offset}`)
+    const articlesHeads = await fetch(`${_apiBase}articles?limit=${limit}&offset=${offset}`, {
+      headers: { Authorization: `Token ${localStorage.getItem('token')}` },
+    })
     if (!articlesHeads.ok) {
       throw new Error(`Cannot fetch articles, status ${articlesHeads.status}`)
     }
